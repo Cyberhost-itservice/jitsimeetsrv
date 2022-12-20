@@ -1,7 +1,7 @@
 Install Quide for Meeting Software Jitsi for Selfhostet on Linux Ubuntu Server 2204
     1  sudo hostnamectl set-hostname jitsi.domain
     2  hostname
-    3  nano /etc/hosts
+    3  nano /etc/hosts #set here the hostname 127.0.1.1 and on th public ip
     4  nano 
     5  apt install nano 
     6  nano 
@@ -18,10 +18,12 @@ Install Quide for Meeting Software Jitsi for Selfhostet on Linux Ubuntu Server 2
    17  ufw status
    18  curl https://download.jitsi.org/jitsi-key.gpg.key -o jitsi-key.gpg.key
    19  sudo gpg --output /usr/share/keyrings/jitsi-key.gpg --dearmor jitsi-key.gpg.key
-   20  sudo nano /etc/apt/sources.list.d/jitsi-stable.list
+   20  sudo nano /etc/apt/sources.list.d/jitsi-stable.list 
+       -> input: deb [signed-by=/usr/share/keyrings/jitsi-key.gpg] https://download.jitsi.org stable/
    21  curl https://prosody.im/files/prosody-debian-packages.key -o prosody-debian-packages.key
    22  sudo gpg --output /usr/share/keyrings/prosody-keyring.gpg --dearmor prosody-debian-packages.key
    23  sudo nano /etc/apt/sources.list.d/prosody.list
+       -> input: deb [signed-by=/usr/share/keyrings/prosody-keyring.gpg] http://packages.prosody.im/debian jammy main
    24  apt update
    25  apt install jitsi-meet -y
    26  history
